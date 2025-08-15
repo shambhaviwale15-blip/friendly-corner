@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> 💬 Friendly Corner </title>
+    <!-- Linking Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Fonts Icons (optional) -->
+    <link rel="stylesheet" href="Quiet Connect CSS code.css" />
+  </head>
+  <body>
+    <!-- Header / Navbar -->
+    <header>
+      <nav class="navbar section-content">
+        <a href="#" class="nav-logo">
+            <h2 class="logo-text"> 💬 Friendly Corner </h2>
+        </a>
+        <ul class="nav-menu">
+          <button id="menu-close-button" class="fas fa-times"></button>
+          <li class="nav-item"><a href="#" class="nav-link"> Home </a> </li>
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#how-it-works" class="nav-link">Info</a></li>
+          <li class="nav-item"><a href="#loginForm" class="nav-link">Lounge</a></li>
+          <li class="nav-item"><a href="#shared-playlist" class="nav-link">Cozy</a></li>
+          <li class="nav-item"><a href="#zoom-hangout" class="nav-link"> Live Hangout</a></li>
+          <li class="nav-item"><a href="#safety-guidelines" class="nav-link">Safety Guidelines</a></li>
+
+        </ul>
+        <button id="menu-open-button" class="fas fa-bars"></button>
+      </nav>
+    </header>
+
+    <main>
+        <!--Hero Section-->
+        <section class="hero-section">
+            <div class="section-content">
+                <div class="hero-details">
+                    <h2 class="title"> Empowering gentle conversations </h2>
+                    <h3 class="subtitle"> Where quiet minds find their voice </h3> <!--Empowering gentle conversations-->
+                    <p class="descriptions"> In a world that is often loud, Calm Connect provides a gentle, understanding community where quiet minds can express themselves at their own pace </p>
+
+                    <div class="buttons">
+                        <a href="#how-it-works" class="button order-now"> Get Started </a>
+                        <a href="#safety-guidelines" class="button contact-us"> Report </a>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="https://cdn-icons-png.flaticon.com/256/6857/6857508.png" alt="Hero" class="hero-image" width="10000" height="300">
+                </div>
+            </div>
+
+        </section>
+
+        <!-- About section -->
+         <section class="about-section" id="about">
+          <div class="section-content">
+            <div class="about-image-wrapper">
+              <img src="https://cdn-icons-png.flaticon.com/128/7186/7186672.png" alt="About" class="about-image">
+            </div>
+            <div class="about details">
+              <h2 class="section-title"> About Us </h2>
+              <p class="text"> Friendly Corner is a safe, pressure-free online space where shy individuals, introverts, and those who are deaf or hard of hearing can connect without the stress of face-to-face interactions. Through shared whiteboards, text-based communication, live hangout, and playlist, we make it easy to express ideas, collaborate, and feel included: no cameras, no judgment, just connection. 
+
+              </p>
+              
+              </div>
+            </div>
+          </div>
+         </section>
+         <!--HOw it works section-->
+         <section id="how-it-works" class="how-section">
+          <h2>💡 How It Works</h2>
+          <div class="how-slide">
+            <h3>Lounge</h3>
+            <p>Shared whiteboard + chat for people to communicate freely. No cameras, no pressure, just connection.</p>
+          </div>
+          <div class="how-slide">
+            <h3>Cozy</h3>
+            <p>Shared playlists that everyone can add to, creating a relaxing and inclusive environment for all users.</p>
+          </div>
+          <div class="how-slide">
+            <h3>Live Hangout</h3>
+            <p>Join our live Google Meet session! Chat, Listen, or share. No cost to join!</p>
+          </div>
+          </div>
+          <div class="how-slide">
+            <h3>Safety Guidelines</h3>
+            <p>Follow safety rules to our Friendly Corner. Fill out form if you address any issue!</p>
+          </div>
+          
+        </section>
+
+    
+
+         <!-- Chat section and whiteboard -->
+          <!-- Login Section -->
+           <div id="loginForm">
+            <h3>Login</h3>
+            <input type="text" id="username" placeholder="Enter your name" />
+            <button onclick="login()">Join Chat</button>
+          </div>
+          <!-- Chat & Whiteboard Container -->
+           <div id="chatWhiteboardContainer" style="display:none; display:flex; gap:20px; margin-top:20px; width:100%; max-width:1100px;">
+
+            <!-- Left side: Chat & Members -->
+             <div id="chatSection" style="flex:1;">
+              <h3>Members Online</h3> 
+              <div id="membersOnline"></div>
+              <h3>Chat Room</h3>
+              <div id="messages"></div>
+              <input type="text" id="chatInput" placeholder="Type a message..." />
+              <button onclick="sendMessage()">Send</button>
+            </div>
+            <!-- Right side: Shared Whiteboard -->
+             <div id="whiteboardSection" style="flex:1; display:flex; flex-direction:column; align-items:center;">
+              <h3>Shared Whiteboard</h3>
+              <canvas id="whiteboard" width="600" height="400"></canvas>
+              <button onclick="clearBoard()">Clear Board</button>
+            </div>
+          </div>
+          <section id="shared-playlist" class="playlist-section">
+            <h2> 🎵 Shared Playlist </h2>
+            <p> Add your favorite songs and discover new ones from our community!</p>
+            <form id="add-song-form">
+              <input type="text" id="song-title" placeholder="Song Title" required>
+              <input type="text" id="song-artist" placeholder="Artist" required>
+              <input type="url" id="song-link" placeholder="Youtube/Spotify Link (optional)">
+              <button type="submit"> Add Song </button>
+            </form>
+            <!--PLaylist Display-->
+            <ul id="playlist"></ul>
+          </section>
+
+            <!-- Live Hangout-->
+             <section id="zoom-hangout" class="zoom-section">
+              <h2>🎥 Live Hangout </h2>
+              <p>Join a live Google Meet session! You can freely chat through this link. Enjoy!</p>
+              <a href="https://meet.google.com/kfj-hxre-oku" target="_blank" class="zoom-btn">Join Hangout</a>
+            </section>
+
+            
+
+
+
+            <!--Satefy Gudiles-->
+            <section class="safety-guidelines" id="safety-guidelines">
+              <h2>🚫 No Bullying Zone</h2>
+              <p>Friendly Corner is a safe and respectful space for everyone. 💙</p>
+              <ul>
+                <li>✅ Be kind and respectful to all members.</li>
+                <li>🚫 No bullying, harassment, or hate speech.</li>
+                <li>💬 Use positive and inclusive language.</li>
+                <li>🤝 Support each other and listen with empathy.</li>
+                <li>📢 Report any inappropriate behavior below!</li>
+                <section class="report-link">
+                  <h3>🚨 Report Inappropriate Behavior</h3>
+                  <p>If you notice any bullying, harassment, or unsafe content in chat, whiteboard, or live hangout, please fill out this form. Your responses are <strong>anonymous</strong> and help us keep the community safe.</p>
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8rvO05XKkBrJMxfVWSdEJLOW5-_01yF9UuzUb4q2GEqrSAw/viewform?usp=preview" target="_blank">
+                    Fill Out Report Form
+                  </a>
+                </section>
+
+              </ul>
+             
+
+              <p class="closing-message">
+                Let's make Friendly Corner a place where everyone feels welcome! 🌟
+              </p>
+            </section>
+
+            <!--Footer Section-->
+            <footer class="footer-section">
+              <div class="section-content">
+                <p class="copyright-text">@ 2025 Quiet Connect</p>
+                <p class="policy-text">
+                  <a href="#" class="policy-link">Privacy policy</a>
+                  <span class="separator">⚪</span>
+                  <a href="#" class="polcy-link">Refund policy</a>
+                </p>
+              </div>
+            </footer>
+   </main>
+    
+
+
+    <script src="script.js"></script>
+  </body>
+  </html>
